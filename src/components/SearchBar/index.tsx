@@ -8,10 +8,8 @@ class SearchBar extends React.Component<
 
   constructor(props) {
     super(props);
-
     this.onChangeText = this.onChangeText.bind(this);
     this.onPress = this.onPress.bind(this);
-
     this.state = {
       text: '',
     };
@@ -23,12 +21,12 @@ class SearchBar extends React.Component<
 
   onPress() {
     this.props.onPressSearch(this.state.text);
+    // alert('경고!!!!') // 소문자 alert 만 가능, 대문자 Alert 는 되지 않음
   }
 
   render() {
     return (
       <View style={styles.container}>
-
         <View style={styles.textInputContainer}>
           <TextInput
             style={styles.textInput}
@@ -36,18 +34,15 @@ class SearchBar extends React.Component<
             value={this.state.text}
           />
         </View>
-
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.button}
           onPress={this.onPress}
         >
           <Text>검색</Text>
         </TouchableOpacity>
-
       </View>
     );
   }
-
 }
 
 export default SearchBar;
@@ -75,4 +70,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
