@@ -1,6 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import SearchBar from './components/SearchBar';
+import TheBestRestaurants from './components/TheBestRestaurants';
 
 class MainComponent extends React.Component {
   constructor(props) {
@@ -40,6 +41,7 @@ class MainComponent extends React.Component {
           alignItems: 'center',
         }}>
         <SearchBar onPressSearch={this.requestTheBestRestaurants} />
+        <TheBestRestaurants />
       </View>
     );
   }
