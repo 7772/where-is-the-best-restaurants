@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Dimensions} from 'react-native';
+import {StyleSheet, View, Dimensions, Text} from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'
 
 class TheBestRestaurants extends React.Component {
@@ -9,8 +9,11 @@ class TheBestRestaurants extends React.Component {
   }
 
   render() {
+    console.log(this.props.data);
+
     return (
       <View style={styles.container}>
+
         <View style={{flex: 1}}>
           <MapView
             provider={PROVIDER_GOOGLE}
@@ -23,7 +26,30 @@ class TheBestRestaurants extends React.Component {
             style={styles.mapStyle}
           />
         </View>
-        {/*맛집 리스트*/}
+
+        <View style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'flex-start',
+          backgroundColor: 'yellow'
+        }}>
+          {
+            this.props.data.map((restaurant, index) => {
+              return (
+                <View key={index} style={{
+                  width: screen.width - 20,
+                  height: 50,
+                  padding: 10,
+                  margin: 10,
+                  backgroundColor: 'red'
+                }}>
+                  <Text>{index + '. ' + restaurant.RESTRT_NM}</Text>
+                </View>
+              );
+            })
+          }
+        </View>
+
       </View>
     );
   }
